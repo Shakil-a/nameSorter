@@ -8,30 +8,33 @@ public class NameSorter
 {
     public static void Main(string[] args)
     {
-        // checks if exactly one arguement has been provided (the unsorted names file), includes an error message and exits applications if there isnt only one 
-        // and if there is then it stores it for later use
+        // Check if input file argument is provided
         if (args.Length != 1)
         {
             Console.WriteLine("Error: please provide a file name in the command line");
             return;
         }
 
+        // Store input and output file names
         string unsortedFileName = args[0];
-        //string sortedFileName = "sorted-names-list.txt";
+        string sortedFileName = "sorted-names-list.txt";
 
-        // retrive unsorted names from unsorted file and sort them alphabetically by last name, test if it had worked in console
+        // Read unsorted names from file and sort by last name alphabetically
         List<string> unsortedNames = File.ReadAllLines(unsortedFileName).ToList();
         List<string> sortedNames = unsortedNames.OrderBy(name => {
             int lastSpacePosition = name.LastIndexOf(' ');
             string lastName = name.Substring(lastSpacePosition + 1);
-            return lastName;
+            string OtherNames = name.Substring(0, lastSpacePosition);
+            return lastName + " " + OtherNames;
         } ).ToList();
 
-          foreach (string name in sortedNames)
+        // Print sorted names to consolw and write to output file
+        foreach (string name in sortedNames)
         {
             Console.WriteLine(name);
         }
 
+        File.WriteAllLines(sortedFileName, sortedNames);
 
     }
 }
