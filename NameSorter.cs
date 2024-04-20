@@ -5,7 +5,11 @@ using System.Linq;
 
 
 public class NameSorter
-{
+{    
+    /// <summary>
+    /// Main method to execute the nameSorter solution
+    /// </summary>
+    /// <param name="args">Expecting a unsorted file name as a command line arguement</param>
     public static void Main(string[] args)
     {
         // Check if input file argument is provided
@@ -27,31 +31,56 @@ public class NameSorter
         PrintAndWriteSortedNames(sortedNames, sortedFileName);
 
     }
-
+     
+     /// <summary>
+     /// Reads names from a file and returns them as a list of strings
+     /// </summary>
+     /// <param name="fileName">The name of the input file</param>
+     /// <returns>A list of names from the input file</returns>
     private static List<string> ReadNamesFromFile(string fileName)
     {
         return File.ReadAllLines(fileName).ToList();
     }
-
+    
+    /// <summary>
+    /// Retrieves the last name from a full name
+    /// </summary>
+    /// <param name="fullName">The full Name</param>
+    /// <returns>Last Name extracted from the full name</returns>
     private static string GetLastName(string fullName)
     {
         int lastSpacePosition = fullName.LastIndexOf(' ');
         string lastName = fullName.Substring(lastSpacePosition + 1);
         return lastName;
     }
-
-    private static string GetOtherNames(string fullName)
+    
+    /// <summary>
+    /// Retrieves the given names from a full name
+    /// </summary>
+    /// <param name="fullName">The full name</param>
+    /// <returns>Given names extracted from full name</returns>
+    private static string GetGivenNames(string fullName)
     {
         int lastSpacePosition = fullName.LastIndexOf(' ');
-        string otherNames = fullName.Substring(0, lastSpacePosition);
-        return otherNames;
+        string givenNames = fullName.Substring(0, lastSpacePosition);
+        return givenNames;
     }
-
+    
+    /// <summary>
+    /// Sorts a list of names by last name, then by given names.
+    /// </summary>
+    /// <param name="names">List of names to be sorted</param>
+    /// <returns>Sorted list of names</returns>
     private static List<string> SortNamesByLastName(List<string> names)
     {
-        return names.OrderBy(name => GetLastName(name)).ThenBy(name => GetOtherNames(name)).ToList();
+        return names.OrderBy(name => GetLastName(name)).ThenBy(name => GetGivenNames(name)).ToList();
     }
-
+    
+    /// <summary>
+    /// Prints the sorted names to the console and writes them to the sorted output file.
+    /// </summary>
+    /// <param name="names">Sorted List of names</param>
+    /// <param name="fileName">Name of the sorted output file</param>
     private static void PrintAndWriteSortedNames(List<string> names, string fileName)
     {
         foreach (string name in names)
