@@ -11,6 +11,7 @@ Clone this repository to your local machine using Git:
 ### Building the Project
 Navigate to the NameSorterApp directory of the cloned repository:
  - cd NameSorterApp
+
 Then build the project using the .NET CLI:
  - dotnet build
 
@@ -21,5 +22,6 @@ To sort a list of names, execute the application with the unsorted input file:
 ### Running Tests
 To run tests, navigate to the test project directory:
  - cd NameSorterApp.Tests
+ 
 Then run the tests using the .NET CLI:
  - dotnet test
