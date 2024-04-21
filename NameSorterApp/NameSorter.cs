@@ -47,7 +47,7 @@ namespace NameSorterApp
         /// </summary>
         /// <param name="fullName">The full Name</param>
         /// <returns>Last Name extracted from the full name</returns>
-        internal static string GetLastName(string fullName)
+        public static string GetLastName(string fullName)
         {
             int lastSpacePosition = fullName.LastIndexOf(' ');
             string lastName = fullName.Substring(lastSpacePosition + 1);
@@ -59,7 +59,7 @@ namespace NameSorterApp
         /// </summary>
         /// <param name="fullName">The full name</param>
         /// <returns>Given names extracted from full name</returns>
-        internal static string GetGivenNames(string fullName)
+        public static string GetGivenNames(string fullName)
         {
             int lastSpacePosition = fullName.LastIndexOf(' ');
             string givenNames = fullName.Substring(0, lastSpacePosition);
@@ -71,7 +71,7 @@ namespace NameSorterApp
         /// </summary>
         /// <param name="names">List of names to be sorted</param>
         /// <returns>Sorted list of names</returns>
-        internal static List<string> SortNamesByLastName(List<string> names)
+        public static List<string> SortNamesByLastName(List<string> names)
         {
             return names.OrderBy(name => GetLastName(name)).ThenBy(name => GetGivenNames(name)).ToList();
         }
@@ -81,7 +81,7 @@ namespace NameSorterApp
         /// </summary>
         /// <param name="names">Sorted List of names</param>
         /// <param name="fileName">Name of the sorted output file</param>
-        internal static void PrintAndWriteSortedNames(List<string> names, string fileName)
+        public static void PrintAndWriteSortedNames(List<string> names, string fileName)
         {
             foreach (string name in names)
             {
