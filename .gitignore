@@ -1,0 +1,30 @@
+# Visual Studio IDE files
+.vs/
+*.vsconfig
+
+# Build directories
+bin/
+obj/
+
+# Compiled files
+*.dll
+*.pdb
+
+# User-specific settings
+*.user
+*.suo
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# NuGet packages
+packages/
+*.nupkg
+
+# .NET Core
+project.lock.json
+*.swp
+
+# Visual Studio Code IDE files
+.vscode/
