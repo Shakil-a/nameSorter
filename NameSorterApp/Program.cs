@@ -7,29 +7,26 @@ namespace NameSorterApp
     {
         static void Main(string[] args)
         {
-            if (args.Length != 1)
+            try
             {
-                Console.WriteLine("Error: please provide a file name in the command line");
-                return;
+                CommandLineParser parser = new CommandLineParser();
+                Sorter sorter = new Sorter();
+                ConsoleOutputHandler outputHandler = new ConsoleOutputHandler();
+
+                string unsortedFileName = parser.ParseFileName(args);
+                string sortedFileName = "sorted-names-list.txt";
+
+                List<string> unsortedNames = FileHandler.ReadLines(unsortedFileName);
+                List<string> sortedNames = sorter.SortNames(unsortedNames);
+
+                outputHandler.PrintSortedNames(sortedNames);
+
+                FileHandler.WriteLines(sortedFileName, sortedNames);
             }
-
-            string unsortedFileName = args[0];
-            string sortedFileName = "sorted-names-list.txt";
-
-            List<string> unsortedNames = FileHandler.ReadLines(unsortedFileName);
-            List<string> sortedNames = NameSorter.SortNamesByLastName(unsortedNames);
-
-            PrintAndWriteSortedNames(sortedNames, sortedFileName);
-        }
-
-        private static void PrintAndWriteSortedNames(List<string> names, string fileName)
-        {
-            foreach (string name in names)
+            catch (Exception ex)
             {
-                Console.WriteLine(name);
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
-
-            FileHandler.WriteLines(fileName, names);
         }
     }
 }
