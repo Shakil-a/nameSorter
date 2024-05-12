@@ -4,6 +4,9 @@ using Xunit;
 
 namespace NameSorterApp.Tests
 {
+    /// <summary>
+    /// Contains unit tests for thw NameSorter class
+    /// </summary>
     public class NameSorterTests
     {
         [Fact]

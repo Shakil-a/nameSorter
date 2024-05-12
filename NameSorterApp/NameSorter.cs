@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace NameSorterApp
 {
+    /// <summary>
+    /// Responsible for sorting names based on last name and given names.
+    /// </summary>
     public class NameSorter
     {
         public static List<string> SortNamesByLastName(List<string> names)

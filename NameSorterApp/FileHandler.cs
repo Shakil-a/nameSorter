@@ -3,6 +3,9 @@ using System.IO;
 
 namespace NameSorterApp
 {
+    /// <summary>
+    /// Responsible for reading lines and writing lines to a file.
+    /// </summary>
     public class FileHandler
     {
         public static List<string> ReadLines(string fileName)

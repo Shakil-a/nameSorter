@@ -5,6 +5,9 @@ using Xunit;
 
 namespace NameSorterApp.Tests
 {
+    /// <summary>
+    /// Contains unit tests for the Filehandler class
+    /// </summary>
     public class FileHandlerTests
     {
         [Fact]

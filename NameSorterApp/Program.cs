@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NameSorterApp
 {
+    /// <summary>
+    /// The entry of the NameSorterApp application
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

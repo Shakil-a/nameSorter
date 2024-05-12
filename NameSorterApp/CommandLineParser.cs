@@ -2,6 +2,9 @@ using System;
 
 namespace NameSorterApp
 {
+    /// <summary>
+    /// Responsible for parsing command-line arguments to extract the file name.
+    /// </summary>
     public class CommandLineParser
     {
         public string ParseFileName(string[] args)

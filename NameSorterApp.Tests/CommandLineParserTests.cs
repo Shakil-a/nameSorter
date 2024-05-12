@@ -3,6 +3,9 @@ using Xunit;
 
 namespace NameSorterApp.Tests
 {
+    /// <summary>
+    /// Contains unit tests for the CommandLineParser class.
+    /// </summary>
     public class CommandLineParserTests
     {
         [Fact]
